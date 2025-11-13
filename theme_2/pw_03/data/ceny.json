@@ -1,0 +1,34 @@
+[
+  {
+    "crop_type": "Пшеница",
+    "price_per_tonne": 12188.58
+  },
+  {
+    "crop_type": "Кукуруза",
+    "price_per_tonne": 13818.46
+  },
+  {
+    "crop_type": "Картофель",
+    "price_per_tonne": 9886.14
+  },
+  {
+    "crop_type": "Свекла",
+    "price_per_tonne": 9542.85
+  },
+  {
+    "crop_type": "Подсолнечник",
+    "price_per_tonne": 34075.66
+  },
+  {
+    "crop_type": "Овёс",
+    "price_per_tonne": 9997.17
+  },
+  {
+    "crop_type": "Рожь",
+    "price_per_tonne": 12051.91
+  },
+  {
+    "crop_type": "Соя",
+    "price_per_tonne": 27555.51
+  }
+]

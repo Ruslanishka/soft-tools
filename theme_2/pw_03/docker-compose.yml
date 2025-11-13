@@ -1,0 +1,46 @@
+# Docker Compose v2 - используйте команды: docker compose (без дефиса)
+# Для Linux/macOS добавьте sudo: sudo docker compose
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: farm_postgres
+    environment:
+      POSTGRES_DB: farm_analytics
+      POSTGRES_USER: analyst
+      POSTGRES_PASSWORD: analyst123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - farm_network
+
+  jupyter:
+    build: .
+    container_name: farm_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work/notebooks
+      - ./data:/home/jovyan/work/data
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: farm_analytics
+      POSTGRES_USER: analyst
+      POSTGRES_PASSWORD: analyst123
+    depends_on:
+      - postgres
+    networks:
+      - farm_network
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
+
+volumes:
+  postgres_data:
+
+networks:
+  farm_network:
+    driver: bridge
