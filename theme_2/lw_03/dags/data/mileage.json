@@ -1,0 +1,402 @@
+[
+  {
+    "car_id": "C001",
+    "mileage": 46066
+  },
+  {
+    "car_id": "C002",
+    "mileage": 138075
+  },
+  {
+    "car_id": "C003",
+    "mileage": 203738
+  },
+  {
+    "car_id": "C004",
+    "mileage": 159415
+  },
+  {
+    "car_id": "C005",
+    "mileage": 92704
+  },
+  {
+    "car_id": "C006",
+    "mileage": 239734
+  },
+  {
+    "car_id": "C007",
+    "mileage": 294802
+  },
+  {
+    "car_id": "C008",
+    "mileage": 168606
+  },
+  {
+    "car_id": "C009",
+    "mileage": 287317
+  },
+  {
+    "car_id": "C010",
+    "mileage": 14101
+  },
+  {
+    "car_id": "C011",
+    "mileage": 166960
+  },
+  {
+    "car_id": "C012",
+    "mileage": 64309
+  },
+  {
+    "car_id": "C013",
+    "mileage": 80407
+  },
+  {
+    "car_id": "C014",
+    "mileage": 148656
+  },
+  {
+    "car_id": "C015",
+    "mileage": 70517
+  },
+  {
+    "car_id": "C016",
+    "mileage": 66117
+  },
+  {
+    "car_id": "C017",
+    "mileage": 91499
+  },
+  {
+    "car_id": "C018",
+    "mileage": 152788
+  },
+  {
+    "car_id": "C019",
+    "mileage": 157721
+  },
+  {
+    "car_id": "C020",
+    "mileage": 120430
+  },
+  {
+    "car_id": "C021",
+    "mileage": 189768
+  },
+  {
+    "car_id": "C022",
+    "mileage": 116743
+  },
+  {
+    "car_id": "C023",
+    "mileage": 148403
+  },
+  {
+    "car_id": "C024",
+    "mileage": 274979
+  },
+  {
+    "car_id": "C025",
+    "mileage": 266131
+  },
+  {
+    "car_id": "C026",
+    "mileage": 141659
+  },
+  {
+    "car_id": "C027",
+    "mileage": 36633
+  },
+  {
+    "car_id": "C028",
+    "mileage": 58390
+  },
+  {
+    "car_id": "C029",
+    "mileage": 232075
+  },
+  {
+    "car_id": "C030",
+    "mileage": 155060
+  },
+  {
+    "car_id": "C031",
+    "mileage": 33114
+  },
+  {
+    "car_id": "C032",
+    "mileage": 11858
+  },
+  {
+    "car_id": "C033",
+    "mileage": 184879
+  },
+  {
+    "car_id": "C034",
+    "mileage": 78587
+  },
+  {
+    "car_id": "C035",
+    "mileage": 147340
+  },
+  {
+    "car_id": "C036",
+    "mileage": 94715
+  },
+  {
+    "car_id": "C037",
+    "mileage": 241649
+  },
+  {
+    "car_id": "C038",
+    "mileage": 299239
+  },
+  {
+    "car_id": "C039",
+    "mileage": 234231
+  },
+  {
+    "car_id": "C040",
+    "mileage": 15069
+  },
+  {
+    "car_id": "C041",
+    "mileage": 68654
+  },
+  {
+    "car_id": "C042",
+    "mileage": 49449
+  },
+  {
+    "car_id": "C043",
+    "mileage": 88147
+  },
+  {
+    "car_id": "C044",
+    "mileage": 296046
+  },
+  {
+    "car_id": "C045",
+    "mileage": 28889
+  },
+  {
+    "car_id": "C046",
+    "mileage": 203575
+  },
+  {
+    "car_id": "C047",
+    "mileage": 299682
+  },
+  {
+    "car_id": "C048",
+    "mileage": 87643
+  },
+  {
+    "car_id": "C049",
+    "mileage": 235332
+  },
+  {
+    "car_id": "C050",
+    "mileage": 76818
+  },
+  {
+    "car_id": "C051",
+    "mileage": 31930
+  },
+  {
+    "car_id": "C052",
+    "mileage": 171616
+  },
+  {
+    "car_id": "C053",
+    "mileage": 201182
+  },
+  {
+    "car_id": "C054",
+    "mileage": 30916
+  },
+  {
+    "car_id": "C055",
+    "mileage": 197595
+  },
+  {
+    "car_id": "C056",
+    "mileage": 120140
+  },
+  {
+    "car_id": "C057",
+    "mileage": 140825
+  },
+  {
+    "car_id": "C058",
+    "mileage": 63893
+  },
+  {
+    "car_id": "C059",
+    "mileage": 195429
+  },
+  {
+    "car_id": "C060",
+    "mileage": 223058
+  },
+  {
+    "car_id": "C061",
+    "mileage": 91030
+  },
+  {
+    "car_id": "C062",
+    "mileage": 134118
+  },
+  {
+    "car_id": "C063",
+    "mileage": 95197
+  },
+  {
+    "car_id": "C064",
+    "mileage": 102826
+  },
+  {
+    "car_id": "C065",
+    "mileage": 226161
+  },
+  {
+    "car_id": "C066",
+    "mileage": 22995
+  },
+  {
+    "car_id": "C067",
+    "mileage": 104036
+  },
+  {
+    "car_id": "C068",
+    "mileage": 184160
+  },
+  {
+    "car_id": "C069",
+    "mileage": 225856
+  },
+  {
+    "car_id": "C070",
+    "mileage": 140111
+  },
+  {
+    "car_id": "C071",
+    "mileage": 149883
+  },
+  {
+    "car_id": "C072",
+    "mileage": 93465
+  },
+  {
+    "car_id": "C073",
+    "mileage": 66673
+  },
+  {
+    "car_id": "C074",
+    "mileage": 210562
+  },
+  {
+    "car_id": "C075",
+    "mileage": 30302
+  },
+  {
+    "car_id": "C076",
+    "mileage": 256777
+  },
+  {
+    "car_id": "C077",
+    "mileage": 126619
+  },
+  {
+    "car_id": "C078",
+    "mileage": 114633
+  },
+  {
+    "car_id": "C079",
+    "mileage": 251331
+  },
+  {
+    "car_id": "C080",
+    "mileage": 193321
+  },
+  {
+    "car_id": "C081",
+    "mileage": 170007
+  },
+  {
+    "car_id": "C082",
+    "mileage": 129325
+  },
+  {
+    "car_id": "C083",
+    "mileage": 126876
+  },
+  {
+    "car_id": "C084",
+    "mileage": 22406
+  },
+  {
+    "car_id": "C085",
+    "mileage": 111255
+  },
+  {
+    "car_id": "C086",
+    "mileage": 218910
+  },
+  {
+    "car_id": "C087",
+    "mileage": 182103
+  },
+  {
+    "car_id": "C088",
+    "mileage": 156068
+  },
+  {
+    "car_id": "C089",
+    "mileage": 46396
+  },
+  {
+    "car_id": "C090",
+    "mileage": 156341
+  },
+  {
+    "car_id": "C091",
+    "mileage": 194101
+  },
+  {
+    "car_id": "C092",
+    "mileage": 277075
+  },
+  {
+    "car_id": "C093",
+    "mileage": 219546
+  },
+  {
+    "car_id": "C094",
+    "mileage": 291131
+  },
+  {
+    "car_id": "C095",
+    "mileage": 183617
+  },
+  {
+    "car_id": "C096",
+    "mileage": 24470
+  },
+  {
+    "car_id": "C097",
+    "mileage": 70472
+  },
+  {
+    "car_id": "C098",
+    "mileage": 146951
+  },
+  {
+    "car_id": "C099",
+    "mileage": 103620
+  },
+  {
+    "car_id": "C100",
+    "mileage": 149180
+  }
+]
