@@ -91,50 +91,56 @@ def load_raw_to_postgres(**context):
     print("Сырые данные загружены в raw_it_salary")
 
 def transform_and_create_staging(**context):
-    """Transform: Создание стейджинг-таблицы с нужными полями (адаптировано под реальный датасет)"""
     postgres_hook = PostgresHook(postgres_conn_id='analytics_postgres')
-    
-    # Удаляем старую таблицу
     postgres_hook.run("DROP TABLE IF EXISTS stg_it_salary CASCADE;")
     
-    # Создаём стейджинг с нужными полями, используя реальные названия из датасета
+    # Исправленный SQL с обработкой пробела в названии Position и пустых значений
     transform_sql = """
     CREATE TABLE stg_it_salary AS
-    SELECT
-        -- Город: используем 'City'
-        TRIM(LOWER(data->>'City')) AS city,
-        
-        -- Должность: используем 'Position'
-        TRIM(data->>'Position') AS position,
-        
-        -- Опыт: используем 'Total years of experience' (как целое число)
-        CASE
-            WHEN (data->>'Total years of experience') ~ '^[0-9]+$' THEN (data->>'Total years of experience')::INTEGER
-            ELSE NULL
-        END AS experience_years,
-        
-        -- Основная технология: используем 'Your main technology / programming language'
-        TRIM(data->>'Your main technology / programming language') AS main_technology,
-        
-        -- Зарплата в евро: используем 'Yearly brutto salary (without bonus and stocks) in EUR'
-        CASE
-            WHEN (data->>'Yearly brutto salary (without bonus and stocks) in EUR') ~ '^[0-9.]+$' 
-                THEN (data->>'Yearly brutto salary (without bonus and stocks) in EUR')::NUMERIC
-            ELSE NULL
-        END AS salary_eur
-        
-    FROM raw_it_salary
-    WHERE 
-        -- Фильтруем только валидные записи
-        data->>'City' IS NOT NULL
-        AND data->>'Position' IS NOT NULL
-        AND (data->>'Total years of experience') ~ '^[0-9]+$'
-        AND data->>'Your main technology / programming language' IS NOT NULL
-        AND (data->>'Yearly brutto salary (without bonus and stocks) in EUR') ~ '^[0-9.]+$'
-        AND (data->>'Yearly brutto salary (without bonus and stocks) in EUR')::NUMERIC BETWEEN 1000 AND 500000;
+SELECT
+    TRIM(LOWER(data::jsonb->>'City')) AS city,
+    TRIM(COALESCE(data::jsonb->>'Position ', data::jsonb->>'Position')) AS position,
+    CASE
+        WHEN (data::jsonb->>'Total years of experience') ~ '^[0-9]+' THEN
+            (REGEXP_REPLACE(data::jsonb->>'Total years of experience', '[^0-9].*$', '', 'g'))::INTEGER
+        ELSE NULL
+    END AS experience_years,
+    TRIM(data::jsonb->>'Your main technology / programming language') AS main_technology,
+    CASE
+        WHEN NULLIF(TRIM(data::jsonb->>'Yearly brutto salary (without bonus and stocks) in EUR'), '') IS NOT NULL THEN
+            REPLACE(
+                REPLACE(
+                    TRIM(data::jsonb->>'Yearly brutto salary (without bonus and stocks) in EUR'),
+                    ' ',
+                    ''
+                ),
+                ',',
+                ''
+            )::NUMERIC
+        ELSE NULL
+    END AS salary_eur
+FROM raw_it_salary
+WHERE 
+    -- Город и должность обязательны
+    NULLIF(TRIM(data::jsonb->>'City'), '') IS NOT NULL
+    AND NULLIF(TRIM(COALESCE(data::jsonb->>'Position ', data::jsonb->>'Position')), '') IS NOT NULL
+    AND NULLIF(TRIM(data::jsonb->>'Your main technology / programming language'), '') IS NOT NULL
+    
+    -- Опыт и зарплата — опциональны, но если есть — должны быть валидны
+    AND (
+        (data::jsonb->>'Total years of experience') IS NULL
+        OR (data::jsonb->>'Total years of experience') ~ '^[0-9]+'
+    )
+    AND (
+        NULLIF(TRIM(data::jsonb->>'Yearly brutto salary (without bonus and stocks) in EUR'), '') IS NULL
+        OR (
+            REPLACE(REPLACE(TRIM(data::jsonb->>'Yearly brutto salary (without bonus and stocks) in EUR'), ' ', ''), ',', '') ~ '^[0-9.]+$'
+            AND REPLACE(REPLACE(TRIM(data::jsonb->>'Yearly brutto salary (without bonus and stocks) in EUR'), ' ', ''), ',', '')::NUMERIC BETWEEN 1000 AND 500000
+        )
+    );
     """
     postgres_hook.run(transform_sql)
-    print("Стейджинг-таблица stg_it_salary создана")
+    print("✅ Стейджинг-таблица stg_it_salary создана с обработкой пробелов и пустых значений")
 
 # Задачи DAG
 extract_task = PythonOperator(
